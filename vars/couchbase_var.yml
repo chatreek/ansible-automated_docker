@@ -15,4 +15,4 @@ automated_docker_container_default:
     #   - "11210:11210"
     #   - "11211:11211"
     volumes:
-      - /opt
+      - /opt/couchbase/var/lib/couchbase/data
