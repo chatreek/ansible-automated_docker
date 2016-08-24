@@ -1,0 +1,15 @@
+---
+automated_docker_container_default:
+  couchbase:
+    image: couchbase:community-4.1.0
+    name: couchbase
+    hostname: couchbase
+    ulimits:
+      - nofile:40960:40960
+      - core:100000000:100000000
+    # published_ports:
+    #   - "8091:8091"
+    #   - "11210:11210"
+    #   - "11211:11211"
+    volumes:
+      - /opt
