@@ -5,7 +5,7 @@
 - name: Force sensu client to send the first disk check to sensu server as part of workaround for Xenial
   shell: check-disk-usage.rb -w 85 -c 95 || true
   delegate_to: "{{ automated_docker_run.name }}"
-  when: automated_docker_create_result.changed and ansible_distribution_release == "xenial"
+  when: automated_docker_create_result.changed and ansible_distribution_release is defined and ansible_distribution_release == "xenial"
 
 - name: Workaround restart container for sensu disk-check-usage issue on Xenial
   docker_container:
@@ -15,4 +15,4 @@
   environment: "{{ automated_docker_machine_environment | default({}) }}"
   vars:
     ansible_python_interpreter: python
-  when: automated_docker_create_result.changed and ansible_distribution_release == "xenial"
+  when: automated_docker_create_result.changed and ansible_distribution_release is defined and ansible_distribution_release == "xenial"
