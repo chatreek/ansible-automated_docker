@@ -230,3 +230,5 @@ automated_docker_sensu_client_json_templates:
 automated_docker_sensu_client_paths:
   - { src: '"{{ automated_docker_sensu_client_host_tmp_config_path }}"/container-sensu-config.json', dest: '"{{ automated_docker_sensu_client_container_config_path }}"/config.json' }
   - { src: '"{{ automated_docker_sensu_client_host_tmp_config_path }}"/container-sensu-client.json', dest: '"{{ automated_docker_sensu_client_container_config_path }}"/conf.d/client.json' }
+# Using variables below to do workaround on sensu-client if instance using Ubuntu 16.04 (Xenial)
+# ansible_distribution_release: "xenial"
